@@ -60,8 +60,8 @@ box c =
 main : Html
 main = 
   div 
-  [ design <| Aux.Layout.wrap <| alignContentAround <| alignItemsCenter <| justifyCenter
-    [("width", "100vw"), ("minHeight", "100vh")] 
+  [ design <| Aux.Layout.wrap <| alignContentAround <| alignItemsCenter 
+    <| justifyCenter fullscreen 
   ]
   (List.map box primaries)
 

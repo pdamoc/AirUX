@@ -20,9 +20,12 @@ import Aux.Layout exposing (..)
 import Aux.Skin exposing (Skin)
 import Aux.Utils exposing (..)
 
-{-| -}
+{-| A Page captures the idea of a Place and its context. -}
 type Page = Page
 
+{-| An App is a series of Pages/Places with a router that routes the requests to
+the proper place. -}
+type App = App 
 
 emptySpace : Int -> Int -> Html
 emptySpace width height = 

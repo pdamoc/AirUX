@@ -9,6 +9,7 @@ module Aux.Layout
   , alignContentBetween, alignContentAround
   , flex, order
   , alignSelfStart, alignSelfCenter, alignSelfEnd, alignSelfStretch, alignSelfBaseline
+  , fullscreen
   ) where 
 
 {-| Module Aux.Layout
@@ -29,11 +30,16 @@ module Aux.Layout
 
 @docs flex, order, alignSelfStart, alignSelfCenter, alignSelfEnd, alignSelfStretch, alignSelfBaseline 
 
+# Values
+
+@docs fullscreen 
+
 -}
 
 import Html exposing (Attribute)
 import Html.Attributes exposing (style)
 import Vendor exposing (prefix, Prefix(Webkit))
+import Aux.Utils exposing (..)
 
 {-| -}
 type alias Design = List (String, String)
@@ -260,6 +266,8 @@ alignSelfStretch = alignSelfVendor "stretch"
 alignSelfBaseline : Design -> Design
 alignSelfBaseline = alignSelfVendor "baseline"
 
-
+{-| -}
+fullscreen : Design 
+fullscreen  = [ "width" => "100vw", "minHeight" => "100vh"]
 
 

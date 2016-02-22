@@ -1,7 +1,11 @@
-module Aux.MaterialSkin (skin, shadow, indigoPink) where
+module Aux.MaterialSkin (MaterialSkin, skin, shadow, indigoPink) where
 
 {-| Aux.MaterialSkin
 
+
+# Types
+
+@docs MaterialSkin
 
 # Functions 
 
@@ -19,6 +23,10 @@ import Aux.Layout exposing (design, alignItemsCenter)
 import Aux.Utils exposing (..)
 
 type alias Design = List (String, String)
+
+{-| type alias to avoid the need for Aux.Skin import. 
+-}
+type alias MaterialSkin = Skin
 
 {-| adds a shadow to the box. 
 -}
@@ -68,6 +76,6 @@ skin colorTheme =
 
 {-| the Indigo - Pink Skin
 -}
-indigoPink : Skin
+indigoPink : MaterialSkin
 indigoPink = skin <| colorTheme Indigo Pink
 
