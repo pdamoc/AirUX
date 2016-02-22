@@ -9,7 +9,10 @@
     "exposed-modules": [
         "Aux", 
         "Aux.MaterialColors",
-        "Aux.Layout"
+        "Aux.Layout",
+        "Aux.Skin", 
+        "Aux.MaterialSkin",
+        "Aux.Utils"
 
     ],
     "dependencies": {

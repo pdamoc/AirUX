@@ -1,6 +1,6 @@
 module Aux.MaterialColors
   ( PrimaryColor(..), Variant(..), BWVariant(..), BlackOrWhite(..), ZaiColor
-  , map, tint, shade, saturate, toHex, primaryToString, toColorString
+  , map, tint, shade, saturate, toHex, primaryToString, toColorString, colorTheme
   , blackText, whiteText
   , primaries, variants ) where 
 
@@ -12,7 +12,7 @@ module Aux.MaterialColors
 
 # Functions 
 
-@docs map, tint, shade, saturate, primaryToString, toHex, toColorString
+@docs map, tint, shade, saturate, primaryToString, toHex, toColorString, colorTheme
 
 # Convenience values and lists
 
@@ -22,6 +22,7 @@ module Aux.MaterialColors
 import Color exposing (Color, rgb, rgba, hsla, toRgb, toHsl)
 import String 
 import Dict 
+import Aux.Skin exposing (ColorTheme)
 
 {-| -}
 type PrimaryColor = 
@@ -134,6 +135,31 @@ variants =
   [ B50, B100, B200, B300, B400, B500, B600, B700, B800, B900
    , A100, A200, A400, A700]
 
+{-| -}
+colorTheme : PrimaryColor -> PrimaryColor -> ColorTheme
+colorTheme primary accent = 
+  { primary = toColorString (C primary B500) 
+  , accent = toColorString (C accent A400)
+  , lightPrimary = toColorString (C primary B100)
+  , darkPrimary = toColorString (C primary B700)
+  , lightAccent = toColorString (C accent A100)
+  , darkAccent = toColorString (C accent A700)
+
+  , whiteText = toColorString (BW White Text)
+  , whiteSecondary = toColorString (BW White SecondaryText)
+  , whiteDisabled = toColorString (BW White Disabled) 
+  , whiteIcons = toColorString (BW White Icons)
+  , whiteHintText = toColorString (BW White HintText)
+  , whiteDividers = toColorString (BW White Dividers)
+
+  , blackText = toColorString (BW Black Text)
+  , blackSecondary = toColorString (BW Black SecondaryText)
+  , blackDisabled = toColorString (BW Black Disabled) 
+  , blackIcons = toColorString (BW Black Icons)
+  , blackHintText = toColorString (BW Black HintText)
+  , blackDividers = toColorString (BW Black Dividers)
+  }
+    
 
 colorDict : Dict.Dict String String
 colorDict = 

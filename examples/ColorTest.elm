@@ -1,6 +1,7 @@
 import Html exposing (..)
 import Html.Attributes exposing (..) 
 import Aux.MaterialColors exposing (..)
+import Aux.MaterialSkin exposing (..)
 import Aux.Layout exposing (..)
 import Debug
 
@@ -48,7 +49,7 @@ primBox c =
 box : PrimaryColor -> Html
 box c = 
   div 
-  [ design [("margin", "10px")]
+  [ design <| shadow 2 [("margin", "10px")]
   ]
   [ primBox c
   , div 
@@ -60,7 +61,7 @@ main : Html
 main = 
   div 
   [ design <| Aux.Layout.wrap <| alignContentAround <| alignItemsCenter <| justifyCenter
-    [("width", "100vw"), ("height", "100vh")] 
+    [("width", "100vw"), ("minHeight", "100vh")] 
   ]
   (List.map box primaries)
 
