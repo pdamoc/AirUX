@@ -21,16 +21,16 @@ toCssColor color =
 subBox : (PrimaryColor -> Variant -> String) -> PrimaryColor -> Variant -> Html
 subBox f p c =
   div 
-  [ style 
-      [ ("width", "40px")
-      , ("height", "20px")
-      , ("backgroundColor", f p c)
-      ]
-  ] []
+    [ style 
+        [ ("width", "40px")
+        , ("height", "20px")
+        , ("backgroundColor", f p c)
+        ]
+    ] []
 
 primBox : PrimaryColor -> Html
 primBox c =
- div 
+  div 
     [ design <| justifyAround  
       [("width", "250px")
       , ("height", "280px")
@@ -49,21 +49,21 @@ primBox c =
 box : PrimaryColor -> Html
 box c = 
   div 
-  [ design <| shadow 2 [("margin", "10px")]
-  ]
-  [ primBox c
-  , div 
-    [ design <| column [] ] 
-    (List.map (subBox toHex c) variants)
-  ]
+    [ design <| shadow 2 [("margin", "10px")]
+    ]
+    [ primBox c
+    , div 
+      [ design <| column [] ] 
+      (List.map (subBox toHex c) variants)
+    ]
 
 main : Html
 main = 
   div 
-  [ design <| Aux.Layout.wrap <| alignContentAround <| alignItemsCenter 
-    <| justifyCenter fullscreen 
-  ]
-  (List.map box primaries)
+    [ design <| Aux.Layout.wrap <| alignContentAround <| alignItemsCenter 
+      <| justifyCenter fullscreen 
+    ]
+    (List.map box primaries)
 
 
 
