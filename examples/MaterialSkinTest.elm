@@ -1,27 +1,33 @@
+module Main exposing (..)
+
 import Aux.MaterialSkin exposing (..)
 import Aux exposing (button)
-import StartApp exposing (start)
-import Effects 
-
 import Aux.Layout exposing (..)
-import Html exposing (div)
+import Html exposing (Html, program, div)
 import Aux.Utils exposing (..)
 
+
 skin : MaterialSkin
-skin = indigoPink
+skin =
+    indigoPink
 
-type Action = Click 
 
-view : Signal.Address Action -> a -> Html.Html
-view address model =
-  div 
-  [ design <| alignItemsCenter <| justifyCenter <| fullscreen ]
-  [ button skin "HELLO WORLD" Click address ]
+type Msg
+    = Click
 
-main : Signal Html.Html
-main = 
-  .html <| start 
-    { init = (0, Effects.none)
-    , update = (\a m -> (m, Effects.none))
-    , view = view
-    , inputs = [] }
+
+view : a -> Html Msg
+view model =
+    div
+        [ design <| alignItemsCenter <| justifyCenter <| fullscreen ]
+        [ button skin "HELLO WORLD" Click ]
+
+
+main : Program Never number Msg
+main =
+    program
+        { init = ( 0, Cmd.none )
+        , update = (\a m -> ( m, Cmd.none ))
+        , view = view
+        , subscriptions = \_ -> Sub.none
+        }
