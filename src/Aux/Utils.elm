@@ -1,19 +1,24 @@
-module Aux.Utils ((=>), dp) where
+module Aux.Utils exposing ((=>), dp)
+
 {-| Aux.Utils
 
 
-# Functions 
+# Functions
 
 @docs (=>), dp
 
 -}
 
-{-| readabiliy version of (,) 
+
+{-| readabiliy version of (,)
 -}
 (=>) : a -> b -> ( a, b )
-(=>) = (,)
+(=>) =
+    (,)
 
-{-| density independent pixels 
+
+{-| density independent pixels
 -}
 dp : Int -> String
-dp v = (toString v) ++ "px"
+dp v =
+    (toString v) ++ "px"
